@@ -1,1 +1,13 @@
-<%= cooking_recipe.name %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="media">
+      <%= link_to cooking_recipe_path(cooking_recipe), class:'media-left' do %>
+        <%= image_tag(cooking_recipe.images.present? ? "cooking_recipes/#{cooking_recipe.images.first.file}" : 'default.png', size:'64x64') %>
+      <% end %>
+      <div class="media-body">
+        <h4 class="media-heading"><%= link_to cooking_recipe_path(cooking_recipe) do %><%= cooking_recipe.name %><% end %></h4>
+        <%= cooking_recipe.description %>
+      </div>
+    </div>
+  </div>
+</div>

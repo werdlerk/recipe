@@ -38,9 +38,8 @@ footer {
 }
 
 
-/* Custom page CSS
+/* Welcome page CSS
 -------------------------------------------------- */
-/* Not required for template or sticky footer method. */
 
 nav + div.container {
   padding-top: 50px;
@@ -59,3 +58,12 @@ footer > .container {
   padding-left: 15px;
 }
 
+/* ----- */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  .vertical-align {
+    display: flex;
+    align-items: center;
+  }
+}

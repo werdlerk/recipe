@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>New recipe</h1>
+    </div>
+  </div>
+</div>
+
+<%= form_for @cooking_recipe, role: 'form' do |f| %>
+<div class="row">
+  <div class="col-md-8">
+    
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class:'form-control input-lg' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, rows:2, class:'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :images %>
+      <%= f.file_field :images, multiple:true, accept:'image/png,image/gif,image/jpg,image/jpeg' %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <h3>Necessities</h3>
+  </div>
+</div>
+
+<%= f.fields_for :necessities do |nf| %>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= nf.label :amount, class:'sr-only' %>
+        <%= nf.text_field :amount, class:'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= nf.label :unit, class:'sr-only' %>
+        <%= nf.select :unit, options_from_collection_for_select(Unit.all, :id, :name), { prompt:'Unit...' }, class:'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= nf.label :ingredient, class:'sr-only' %>
+        <%= nf.select :ingredient, options_from_collection_for_select(Ingredient.all, :id, :name), { prompt:'Ingredient...' }, class:'form-control' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% end %>

@@ -8,13 +8,19 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to root_path, class: 'navbar-brand' do %>
-        <%= fa_icon 'cutlery inverse border' %>
+        <% if menu_active?(:brand) %>
+          <%= fa_icon 'cutlery inverse border' %>
+        <% else %>
+          <%= fa_icon 'cutlery border' %>
+        <% end %>
       <% end %>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Recipes', cooking_recipes_path %></li>
+        <li class="<%= menu_active?(:recipes)? 'active' : nil %>"><%= link_to 'Recipes', cooking_recipes_path %></li>
       </ul>
+      <button type="button" class="btn btn-warning navbar-btn navbar-right">Register</button>
+
       <form class="navbar-form navbar-right" role="form">
         <div class="form-group">
           <input type="text" placeholder="Email" class="form-control">
@@ -24,6 +30,7 @@
         </div>
         <button type="submit" class="btn btn-success">Sign in</button>
       </form>
+      
     </div><!--/.navbar-collapse -->
   </div>
 </nav>
