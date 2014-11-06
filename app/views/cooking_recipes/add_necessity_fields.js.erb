@@ -1,0 +1,10 @@
+$('#add_necessity').closest('.row').before(
+  '<%= 
+    fields_for(CookingRecipe.new) do |f| 
+      fields = f.fields_for(:necessities, Necessity.new, child_index: Necessity.new.object_id) do |nf| 
+        render('necessity_fields', f: nf)
+      end
+      fields.gsub("\n", "").html_safe
+    end 
+  %>'
+);

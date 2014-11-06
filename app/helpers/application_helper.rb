@@ -12,4 +12,5 @@ module ApplicationHelper
        (MENU_ITEMS[menu_item] == controller_name)
       )
   end
+
 end

@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   root to: 'pages#welcome'
 
-  resources :cooking_recipes
+  resources :cooking_recipes do
+    collection do
+      get :add_necessity_fields
+    end
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

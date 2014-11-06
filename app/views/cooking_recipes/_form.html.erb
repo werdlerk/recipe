@@ -1,0 +1,40 @@
+<%= form_for @cooking_recipe, role: 'form' do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+      
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class:'form-control input-lg' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, rows:2, class:'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :images %>
+        <%= f.file_field :images, multiple:true, accept:'image/png,image/gif,image/jpg,image/jpeg' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h3>Necessities</h3>
+    </div>
+  </div>
+
+  <%= f.fields_for :necessities do |nf| %>
+    <%= render 'necessity_fields', f: nf %>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-2">
+      <%= link_to add_necessity_fields_cooking_recipes_path, remote:true, id:'add_necessity', class:'btn btn-default' do %>
+        <%= fa_icon('plus') %> Add necessity
+      <% end %>
+    </div>
+  </div>
+
+  <%= f.submit 'Save', class:'btn btn-default' %>
+
+<% end %>
