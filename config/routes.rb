@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :cooking_recipes do
     collection do
       get :add_necessity_fields
+      get :add_direction_fields
     end
   end
 

@@ -19,7 +19,7 @@
 
   <div class="row">
     <div class="col-md-8">
-      <h3>Necessities</h3>
+      <h3>Ingredients</h3>
     </div>
   </div>
 
@@ -30,7 +30,27 @@
   <div class="row">
     <div class="col-md-2">
       <%= link_to add_necessity_fields_cooking_recipes_path, remote:true, id:'add_necessity', class:'btn btn-default' do %>
-        <%= fa_icon('plus') %> Add necessity
+        <%= fa_icon('plus') %> Add ingredient
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h3>Directions</h3>
+    </div>
+  </div>
+
+  <div id="sortable-items">
+    <%= f.fields_for :directions do |df| %>
+      <%= render 'direction_fields', f: df %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <%= link_to add_direction_fields_cooking_recipes_path, remote:true, id:'add_direction', class:'btn btn-default' do %>
+        <%= fa_icon('plus') %> Add direction
       <% end %>
     </div>
   </div>

@@ -1,0 +1,16 @@
+direction_fields_html = '<%= 
+    fields_for(CookingRecipe.new) do |f| 
+      fields = f.fields_for(:directions, Direction.new, child_index: Direction.new.object_id) do |nf| 
+        render('direction_fields', f: nf)
+      end
+      fields.gsub("\n", "").html_safe
+    end 
+  %>'
+
+if($('#add_direction').siblings('#sortable-items')) {
+  $('#sortable-items').append(direction_fields_html);
+  $('#sortable-items').sortable("refresh");
+  update_items_order();
+} else {
+  $('#add_direction').closest('.row').before(direction_fields_html);
+}

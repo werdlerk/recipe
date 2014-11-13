@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
+ *= require jquery-ui/sortable
  */
 
 @import "bootstrap-sprockets";
@@ -66,4 +67,9 @@ footer > .container {
     display: flex;
     align-items: center;
   }
+}
+
+
+html.turbolinks-progress-bar::before {
+  z-index: 2000;
 }

@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.1.7'
 
-# Add Bootstrap magic
-gem 'bootstrap-sass', '~> 3.3.0'
-gem 'autoprefixer-rails'
-gem "font-awesome-rails"
+# Sprockets 2.11.3 somehow breaks jquery-ui css files
+# " TypeError: 'null' is not an object (evaluating 'match[1]') "
+gem 'sprockets', '2.11.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -19,8 +18,16 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+# Add Bootstrap magic
+gem 'bootstrap-sass', '~> 3.3.0'
+gem 'autoprefixer-rails'
+gem "font-awesome-rails"
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Use JQuery UI
+gem 'jquery-ui-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
