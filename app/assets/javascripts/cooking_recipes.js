@@ -2,7 +2,7 @@
 $(document).on('click', 'a.destroy_fields', function(event) {
   $(this).prev('input[type=hidden]').val('1');
   
-  if($(this).closest('.sortable-item')) {
+  if($(this).closest('.sortable-item').length > 0) {
     $(this).closest('.sortable-item').hide();
     update_items_order();
   } else {

@@ -17,7 +17,11 @@
   width:15px;
   margin: 0 0 0 3px;
   height:50px;
-  cursor: move;
+  cursor: grab;
   background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAH0lEQVQIW2OcN2/efwYgSEpKYgTRjBgCIFFkAFaGDAC2jQgFaRPeawAAAABJRU5ErkJggg==) repeat;
+}
+
+.ui-sortable-helper .sortable-handle {
+  cursor: grabbing;
 }
 

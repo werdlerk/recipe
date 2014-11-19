@@ -25,7 +25,6 @@ class CookingRecipesController < ApplicationController
   def update
     @cooking_recipe = CookingRecipe.find(params[:id])
     
-
     if @cooking_recipe.update(cooking_recipe_params)
       flash[:notice] = 'Recipe updated'
       redirect_to cooking_recipes_path
@@ -46,7 +45,9 @@ class CookingRecipesController < ApplicationController
     params.require(:cooking_recipe).permit(
       :name, :description, 
       necessities_attributes: [:id, :amount, :unit_id, :ingredient_id, :_destroy],
-      directions_attributes: [:id, :sort_order, :description, :_destroy])
+      directions_attributes: [:id, :sort_order, :description, :_destroy],
+      images_attributes: [:id, :file, :_destroy]
+    )
   end
 
 end

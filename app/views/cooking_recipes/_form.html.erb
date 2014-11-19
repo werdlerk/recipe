@@ -10,9 +10,27 @@
         <%= f.label :description %>
         <%= f.text_area :description, rows:2, class:'form-control' %>
       </div>
+      
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h3>Images</h3>
+    </div>
+  </div>
+  
+  <div class="row">
+    <%= f.fields_for :images do |iform| %>
+      <%= render 'image_fields', f:iform %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :images %>
-        <%= f.file_field :images, multiple:true, accept:'image/png,image/gif,image/jpg,image/jpeg' %>
+        <%= f.label :file %>
+        <%= f.file_field :file, accept:'image/png,image/gif,image/jpg,image/jpeg', name:'cooking_recipe[images_attributes][9999][file]' %>
       </div>
     </div>
   </div>
