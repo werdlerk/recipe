@@ -1,14 +1,25 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="media">
-      <%= link_to cooking_recipe_path(cooking_recipe), class:'media-left' do %>
-        <%= image_tag(cooking_recipe.images.present? ? cooking_recipe.images.first.file_url(:thumb) : 'default.png', size:'64x64') %>
-      <% end %>
-      <div class="media-body">
-        <h4 class="media-heading"><%= link_to cooking_recipe_path(cooking_recipe) do %><%= cooking_recipe.name %><% end %></h4>
-        <%= cooking_recipe.description %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-md-10">
+          <div class="media">
+            <%= link_to cooking_recipe_path(cooking_recipe), class:'media-left' do %>
+              <%= image_tag(cooking_recipe.images.present? ? cooking_recipe.images.first.file_url(:thumb) : 'default.png', size:'64x64') %>
+            <% end %>
+            <div class="media-body">
+              <h4 class="media-heading"><%= link_to cooking_recipe_path(cooking_recipe) do %><%= cooking_recipe.name %><% end %></h4>
+              <%= cooking_recipe.description %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <%= link_to edit_cooking_recipe_path(cooking_recipe), class:'btn btn-default btn-lg btn-block' do %>
+            <%= fa_icon 'edit' %>
+            Edit    
+          <% end %>
+        </div>
       </div>
-    </div>
+    </div>    
   </div>
-  <%= link_to 'Edit', edit_cooking_recipe_path(cooking_recipe) %>
 </div>

@@ -29,8 +29,8 @@
   <div class="row">
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :file %>
-        <%= f.file_field :file, accept:'image/png,image/gif,image/jpg,image/jpeg', name:'cooking_recipe[images_attributes][9999][file]' %>
+        <%= f.label :file, 'Upload image(s)' %>
+        <%= file_field_tag 'images[]', type: :file, multiple: true, accept:'image/png,image/gif,image/jpg,image/jpeg' %>
       </div>
     </div>
   </div>

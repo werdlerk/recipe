@@ -1,0 +1,33 @@
+<div class="row vertical-align">
+  <div class="col-sm-10">
+    <div class="page-header">
+      <h1><%= @cooking_recipe.name %></h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+    
+  </div>
+  <div class="col-md-10">
+    <h3>Ingredients</h3>
+
+    <ul>
+      <% @cooking_recipe.necessities.each do |necessity| %>
+        <li><%= necessity.amount %> <%= necessity.unit.name %> <%= necessity.ingredient.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>Directions</h3>
+    <ol>
+      <% @cooking_recipe.directions.each do |direction| %>
+        <li><%= direction.description %></li>
+      <% end %>
+    </ol>
+  </div>
+</div>

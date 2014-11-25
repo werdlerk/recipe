@@ -4,10 +4,11 @@
 <div class="col-md-2">
   <div class="thumbnail">
     <%= f.hidden_field :id %>
+    <%= f.hidden_field :file_cache %>
     <%= image_tag f.object.file_url(:thumb) %>
     <div class="caption">
       <%= f.hidden_field :_destroy %>
-      <%= link_to '#', class:'btn btn-default btn-block destroy_fields' do %>
+      <%= link_to '#', class:'btn btn-default btn-block destroy_fields destroy_column' do %>
         <%= fa_icon('trash-o') %> Remove
       <% end %>
     </div>

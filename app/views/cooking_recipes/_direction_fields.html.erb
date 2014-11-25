@@ -2,12 +2,13 @@
   <div class="col-md-6">
     <div class="sortable-item">
       <div class="row">
-        <div class="col-xs-1">
+        <div class="col-xs-2">
           <div class="sortable-handle"></div>
+          <div class="sortable-index-display"><%= f.object.sort_order ? f.object.sort_order + 1 : '' %></div>
           <%= f.hidden_field :id %>
           <%= f.hidden_field :sort_order %>
         </div>
-        <div class="col-xs-9">
+        <div class="col-xs-8">
           <%= f.label :direction, class:'sr-only' %>
           <%= f.text_area :description, rows:1, class:'form-control' %>
         </div>

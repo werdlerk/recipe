@@ -24,6 +24,12 @@ class CookingRecipesController < ApplicationController
 
   def update
     @cooking_recipe = CookingRecipe.find(params[:id])
+
+    if params[:images] && params[:images][0].present?
+      params[:images].each do |file|
+        @cooking_recipe.images.build(file: file)
+      end
+    end
     
     if @cooking_recipe.update(cooking_recipe_params)
       flash[:notice] = 'Recipe updated'
@@ -31,6 +37,10 @@ class CookingRecipesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show
+    @cooking_recipe = CookingRecipe.find(params[:id])
   end
 
   def add_necessity_fields
