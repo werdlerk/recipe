@@ -5,7 +5,7 @@ gem 'rails', '4.1.7'
 
 # Sprockets 2.11.3 somehow breaks jquery-ui css files
 # " TypeError: 'null' is not an object (evaluating 'match[1]') "
-gem 'sprockets', '2.11.0'
+# gem 'sprockets', '2.11.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

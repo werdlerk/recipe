@@ -37,11 +37,5 @@ initialize_sorting = function() {
   // $( "#sortable-items" ).disableSelection();
 };
 
-initialize_file_upload = function() {
-  $(".edit_cooking_recipe, .new_cooking_recipe").fileupload();
-}
-
 $(document).ready(initialize_sorting);
-$(document).ready(initialize_file_upload);
 $(document).on('page:load', initialize_sorting);
-$(document).on('page:load', initialize_file_upload);

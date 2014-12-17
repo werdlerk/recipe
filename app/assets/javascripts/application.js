@@ -9,12 +9,15 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
+// 
+// Note: First load bootstrap and then JQuery UI! This prevents problems with dialog.
+//       More info: http://stackoverflow.com/questions/17367736/jquery-ui-dialog-missing-close-icon
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require jquery-ui/sortable
 //= require turbolinks
-//= require bootstrap-sprockets
 //= require_tree .
 
 Turbolinks.enableProgressBar();
