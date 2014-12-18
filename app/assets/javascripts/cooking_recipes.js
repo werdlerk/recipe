@@ -37,5 +37,11 @@ initialize_sorting = function() {
   // $( "#sortable-items" ).disableSelection();
 };
 
-$(document).ready(initialize_sorting);
-$(document).on('page:load', initialize_sorting);
+initialize = function() {
+  initialize_sorting();
+
+  $("textarea[name$='[description]']").autosize(); 
+}
+
+$(document).ready(initialize);
+$(document).on('page:load', initialize);

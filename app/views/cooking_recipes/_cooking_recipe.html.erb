@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-body">
-        <div class="col-md-10">
+        <div class="col-md-9">
           <div class="media">
             <%= link_to cooking_recipe_path(cooking_recipe), class:'media-left' do %>
               <%= image_tag(cooking_recipe.images.present? ? cooking_recipe.images.first.file_url(:thumb) : 'default.png', size:'64x64') %>
@@ -17,6 +17,11 @@
           <%= link_to edit_cooking_recipe_path(cooking_recipe), class:'btn btn-default btn-lg btn-block' do %>
             <%= fa_icon 'edit' %>
             Edit    
+          <% end %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to cooking_recipe_path(cooking_recipe), method: :delete, class:'btn btn-default btn-lg', 'data-confirm' => 'Are you sure you want to remove this recipe?' do %>
+            <%= fa_icon('trash-o') %>
           <% end %>
         </div>
       </div>

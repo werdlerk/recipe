@@ -20,7 +20,7 @@
     </div>
   </div>
   
-  <div class="row">
+  <div class="row" id="image_columns">
     <%= f.fields_for :images do |iform| %>
       <%= render 'image_fields', f:iform %>
     <% end %>
@@ -29,7 +29,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :file, 'Upload image(s)' %>
+        <%= f.label :file, 'Add image(s)' %>
         <%= f.file_field :file, multiple:true, accept:'image/png,image/gif,image/jpg,image/jpeg', name:'images[]' %>
       </div>
     </div>

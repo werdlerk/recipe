@@ -1,8 +1,8 @@
 class CookingRecipe < ActiveRecord::Base
-  has_many :necessities
-  has_many :directions
+  has_many :necessities, dependent: :destroy
+  has_many :directions, dependent: :destroy
 
-  has_many :images, as: :imageable
+  has_many :images, as: :imageable, dependent: :destroy
 
   accepts_nested_attributes_for :necessities, allow_destroy: true
   accepts_nested_attributes_for :directions, allow_destroy: true

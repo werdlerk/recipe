@@ -14,3 +14,4 @@ if($('#add_direction').siblings('#sortable-items')) {
 } else {
   $('#add_direction').closest('.row').before(direction_fields_html);
 }
+$(".sortable-item:last textarea[name$='[description]']").autosize();

@@ -3,6 +3,12 @@
   border-radius: 8px;
   margin-bottom: 5px;
   padding:8px 0px;
+
+  textarea {
+    -webkit-transition: height 0.2s;
+    -moz-transition: height 0.2s;
+    transition: height 0.2s;
+  }
 }
 
 .sortable-placeholder {
@@ -28,13 +34,24 @@
 
 .sortable-index-display {
   display: inline-block;
-  height: 50px;
+  height: 60px;
   vertical-align: top;
-  color: #CCC;
-  width: 65%;
+  color: #EFEFEF;
+  width: 55%;
 
-  font-size: 50px;
+  font-size: 98px;
   font-weight: bold;
   text-align: center;
   line-height: 50px;
+}
+
+#image_columns div:nth-child(6n) {
+  &:after {
+    clear:both;
+    display: table;
+  }
+  &:before {
+    content: " ";
+    display: table;
+  }
 }

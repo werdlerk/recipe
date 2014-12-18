@@ -10,6 +10,13 @@ class CookingRecipesController < ApplicationController
 
   def create
     @cooking_recipe = CookingRecipe.new(cooking_recipe_params)
+
+    if params[:images] && params[:images][0].present?
+      params[:images].each do |file|
+        @cooking_recipe.images.build(file: file)
+      end
+    end
+
     if @cooking_recipe.save
       flash[:notice] = 'Recipe saved'
       redirect_to cooking_recipes_path
@@ -41,6 +48,13 @@ class CookingRecipesController < ApplicationController
 
   def show
     @cooking_recipe = CookingRecipe.find(params[:id])
+  end
+
+  def destroy
+    @cooking_recipe = CookingRecipe.find(params[:id])
+    @cooking_recipe.destroy
+    flash[:notice] = 'Recipe removed'
+    redirect_to cooking_recipes_path
   end
 
   def add_necessity_fields
