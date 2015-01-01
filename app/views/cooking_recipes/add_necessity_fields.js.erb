@@ -1,4 +1,4 @@
-$('#add_necessity').closest('.row').before(
+row = $('#add_necessity').closest('.row').before(
   '<%= 
     fields_for(CookingRecipe.new) do |f| 
       fields = f.fields_for(:necessities, Necessity.new, child_index: Necessity.new.object_id) do |nf| 
@@ -8,3 +8,15 @@ $('#add_necessity').closest('.row').before(
     end 
   %>'
 );
+
+// Autocomplete on unit text field
+$("input[name$='[unit_name]']:last").autocomplete({
+  source: $("input[name$='[unit_name]']:last").data('autocomplete-source'),
+  autoFocus: true
+});
+
+// Autocomplete on ingredient text field
+$("input[name$='[ingredient_name]']:last").autocomplete({
+  source: $("input[name$='[ingredient_name]']:last").data('autocomplete-source'),
+  autoFocus: true
+});

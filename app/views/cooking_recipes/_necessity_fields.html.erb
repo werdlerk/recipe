@@ -7,14 +7,14 @@
   </div>
   <div class="col-md-2">
     <div class="form-group">
-      <%= f.label :unit_id, class:'sr-only' %>
-      <%= f.select :unit_id, Unit.all.map { |u| [u.name, u.id] }, { prompt:'Unit...' }, class:'form-control' %>
+      <%= f.label :unit_name, class:'sr-only' %>
+      <%= f.text_field :unit_name, class:'form-control', placeholder:'Unit', data: {autocomplete_source: units_path} %>
     </div>
   </div>
   <div class="col-md-2">
     <div class="form-group">
-      <%= f.label :ingredient_id, class:'sr-only' %>
-      <%= f.select :ingredient_id, Ingredient.all.map { |i| [i.name, i.id] }, { prompt:'Ingredient...' }, class:'form-control' %>
+      <%= f.label :ingredient_name, class:'sr-only' %>
+      <%= f.text_field :ingredient_name, class:'form-control', placeholder:'Ingredient', data: {autocomplete_source: ingredients_path} %>
     </div>
   </div>
   <div class="col-md-1">

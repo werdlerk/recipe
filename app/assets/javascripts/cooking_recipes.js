@@ -40,7 +40,12 @@ initialize_sorting = function() {
 initialize = function() {
   initialize_sorting();
 
-  $("textarea[name$='[description]']").autosize(); 
+  $("textarea[name$='[description]']").autosize();
+  
+  // Autocomplete on unit text field
+  $("input[name$='[unit_name]']:last").autocomplete({
+    source: $("input[name$='[unit_name]']:last").data('autocomplete-source')
+  });
 }
 
 $(document).ready(initialize);

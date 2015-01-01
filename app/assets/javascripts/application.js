@@ -17,6 +17,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jquery-ui/sortable
+//= require jquery-ui/autocomplete
 //= require turbolinks
 //= require_tree .
 
