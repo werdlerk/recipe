@@ -7,10 +7,30 @@
 </div>
 
 <div class="row">
-  <div class="col-md-2">
-    
+  <div class="col-md-5">
+    <div id="cooking-recipe-images-carousel" class="carousel slide" data-ride="carousel">
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <% @cooking_recipe.images.each_with_index do |image, index| %>
+          <li data-target="#cooking-recipe-images-carousel" data-slide-to="<%= index %>" <%= index == 0 ? raw('class="active"') : '' %>></li>
+        <% end %>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <% @cooking_recipe.images.each_with_index do |image, index| %>
+          <div class="item <%= index == 0 ? 'active' : '' %>">
+            <%= image_tag image.file.slider.url %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+
   </div>
-  <div class="col-md-10">
+  <div class="col-md-7">
     <h3>Ingredients</h3>
 
     <ul>

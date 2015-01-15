@@ -42,10 +42,14 @@ initialize = function() {
 
   $("textarea[name$='[description]']").autosize();
   
-  // Autocomplete on unit text field
-  $("input[name$='[unit_name]']:last").autocomplete({
+  // Autocomplete on unit text fields
+  $("input[name$='[unit_name]']").autocomplete({
     source: $("input[name$='[unit_name]']:last").data('autocomplete-source')
   });
+  // Autocomplete on ingredient text fields
+  $("input[name$='[ingredient_name]']").autocomplete({
+    source: $("input[name$='[ingredient_name]']:last").data('autocomplete-source')
+  })
 }
 
 $(document).ready(initialize);
