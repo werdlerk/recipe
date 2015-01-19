@@ -25,7 +25,6 @@
           </div>
         <% end %>
       </div>
-
     </div>
 
 
@@ -35,7 +34,12 @@
 
     <ul>
       <% @cooking_recipe.necessities.each do |necessity| %>
-        <li><%= necessity.amount %> <%= necessity.unit.name %> <%= necessity.ingredient.name %></li>
+        <li>
+          <%= necessity.amount %> <%= necessity.unit.name %> <%= necessity.ingredient.name %> 
+          <% if necessity.ingredient.description %>
+            <span class="ingredient_description">(<%= necessity.ingredient.description %>)</span>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   </div>
@@ -49,5 +53,11 @@
         <li><%= direction.description %></li>
       <% end %>
     </ol>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <p>&nbsp;</p>
   </div>
 </div>

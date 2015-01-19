@@ -5,7 +5,7 @@ class UnitsController < ApplicationController
 
     respond_to do |format| 
       format.js { render json: @units.map(&:name) }
-      format.html { render text: 'Nothing here' }
+      format.html
     end
     
   end

@@ -1,7 +1,9 @@
 module ApplicationHelper
   MENU_ITEMS = {
     :brand => 'pages#welcome',
-    :recipes => 'cooking_recipes#index'
+    :recipes => 'cooking_recipes#index',
+    :ingredients => 'ingredients#index',
+    :units => 'units#index'
   }
 
   def menu_active?(menu_item)

@@ -17,7 +17,25 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="<%= menu_active?(:recipes)? 'active' : nil %>"><%= link_to 'Recipes', cooking_recipes_path %></li>
+        <li class="<%= menu_active?(:recipes)? 'active' : nil %>">
+          <%= link_to 'Recipes', cooking_recipes_path %> 
+          <% if menu_active?(:recipes) %><span class="sr-only">(current)</span><% end %>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Manage <span class="caret"></span></a>
+          
+          <ul class="dropdown-menu" role="menu">
+            <li class="<%= menu_active?(:ingredients)? 'active' : nil %>">
+              <%= link_to 'Ingredients', ingredients_path %>
+              <% if menu_active?(:ingredients) %><span class="sr-only">(current)</span><% end %>
+            </li>
+            <li class="<%= menu_active?(:units)? 'active' : nil %>">
+              <%= link_to 'Units', units_path %>
+              <% if menu_active?(:units) %><span class="sr-only">(current)</span><% end %>
+            </li>
+          </ul>
+        </li>
       </ul>
       <button type="button" class="btn btn-danger navbar-btn navbar-right">Register</button>
 
