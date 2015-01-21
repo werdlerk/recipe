@@ -11,39 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112222825) do
+ActiveRecord::Schema.define(version: 20150121195642) do
 
-  create_table "cooking_recipes", force: true do |t|
-    t.string   "name",        null: false
+  create_table "cooking_recipes", force: :cascade do |t|
+    t.string   "name",        limit: 255, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
   end
 
-  create_table "directions", force: true do |t|
-    t.string   "description"
+  create_table "directions", force: :cascade do |t|
+    t.string   "description",       limit: 255
     t.integer  "cooking_recipe_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sort_order"
   end
 
-  create_table "images", force: true do |t|
-    t.string   "file"
-    t.string   "imageable_type"
+  create_table "images", force: :cascade do |t|
+    t.string   "file",           limit: 255
+    t.string   "imageable_type", limit: 255
     t.integer  "imageable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "ingredients", force: true do |t|
-    t.string   "name",        null: false
-    t.string   "description"
+  create_table "ingredients", force: :cascade do |t|
+    t.string   "name",              limit: 255,             null: false
+    t.string   "description",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "necessities_count",             default: 0
   end
 
-  create_table "necessities", force: true do |t|
+  create_table "necessities", force: :cascade do |t|
     t.integer  "amount"
     t.integer  "unit_id"
     t.integer  "ingredient_id"
@@ -52,8 +53,11 @@ ActiveRecord::Schema.define(version: 20141112222825) do
     t.datetime "updated_at"
   end
 
-  create_table "units", force: true do |t|
-    t.string "name", null: false
+  create_table "units", force: :cascade do |t|
+    t.string   "name",              limit: 255,             null: false
+    t.integer  "necessities_count",             default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

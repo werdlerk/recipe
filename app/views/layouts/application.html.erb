@@ -12,6 +12,8 @@
   <%= yield :before_container %>
 
   <div class="container">
+    <%= render 'layouts/messages' %>
+
     <%= yield %>
   </div>
 

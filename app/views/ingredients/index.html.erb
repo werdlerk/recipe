@@ -19,16 +19,24 @@
   <thead>
     <tr>
       <th>
-        <%= link_to '#', allowed_params.merge(sort:'id') %>
-        <% if @sort == 'id' %><span class="caret"></span><% end %>
+        <%= link_to '#', allowed_params.merge(sort:'id', dir: (@sort == 'id' && @dir == 'asc' ? 'dsc' : 'asc')) %>
+        <% if @sort == 'id' && @dir == 'asc' %><span class="dropup"><span class="caret"></span></span><% end %>
+        <% if @sort == 'id' && @dir == 'dsc' %><span class="caret"></span><% end %>
       </th>
       <th>
-        <%= link_to 'Name', allowed_params.merge(sort:'name') %>
-        <% if @sort == 'name' %><span class="caret"></span><% end %>
+        <%= link_to 'Name', allowed_params.merge(sort:'name', dir: (@sort == 'name' && @dir == 'asc' ? 'dsc' : 'asc')) %>
+        <% if @sort == 'name' && @dir == 'asc' %><span class="dropup"><span class="caret"></span></span><% end %>
+        <% if @sort == 'name' && @dir == 'dsc' %><span class="caret"></span><% end %>
       </th>
       <th>
-        <%= link_to 'Description', allowed_params.merge(sort:'description') %>
-        <% if @sort == 'description' %><span class="caret"></span><% end %>
+        <%= link_to 'Description', allowed_params.merge(sort:'description', dir: (@sort == 'description' && @dir == 'asc' ? 'dsc' : 'asc')) %>
+        <% if @sort == 'description' && @dir == 'asc' %><span class="dropup"><span class="caret"></span></span><% end %>
+        <% if @sort == 'description' && @dir == 'dsc' %><span class="caret"></span><% end %>
+      </th>
+      <th>
+        <%= link_to '# Usages', allowed_params.merge(sort:'usages', dir: (@sort == 'usages' && @dir == 'asc' ? 'dsc' : 'asc')) %>
+        <% if @sort == 'usages' && @dir == 'asc' %><span class="dropup"><span class="caret"></span></span><% end %>
+        <% if @sort == 'usages' && @dir == 'dsc' %><span class="caret"></span><% end %>
       </th>
       <th></th>
     </tr>
@@ -39,9 +47,14 @@
         <td><%= ingredient.id %></td>
         <td><%= ingredient.name %></td>
         <td><%= ingredient.description ? ingredient.description.first(100) : nil %></td>
+        <td><%= ingredient.necessities.size > 0 ? ingredient.necessities.size : nil %></td>
         <td align="right">
           <%= link_to 'Edit', edit_ingredient_path(ingredient), class:'btn btn-primary' %>
-          <%= link_to 'Delete', ingredient_path(ingredient), method: :delete, class:'btn btn-danger' %>
+          <% if ingredient.necessities.size == 0 %>
+            <%= link_to 'Delete', ingredient_path(ingredient), method: :delete, class:'btn btn-danger' %>
+          <% else %>
+            <%= link_to 'Delete', '', class:'btn btn-danger disabled' %>
+          <% end %>
         </td>
       </tr>
     <% end %>

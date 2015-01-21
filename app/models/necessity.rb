@@ -2,8 +2,8 @@ class Necessity < ActiveRecord::Base
   # attr_accessor :unit_name, :ingredient_name
 
   belongs_to :cooking_recipe
-  belongs_to :unit
-  belongs_to :ingredient
+  belongs_to :unit, counter_cache: true
+  belongs_to :ingredient, counter_cache: true
 
   def unit_name
     unit.try(:name)

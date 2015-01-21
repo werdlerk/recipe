@@ -10,9 +10,19 @@ class IngredientsController < ApplicationController
       }
       format.html {
         @sort = params[:sort] ? params[:sort] : 'name'
+        @dir = params[:dir] ? params[:dir] : 'asc'
+
+        sort_sql = 'id' if @sort == 'id'
+        sort_sql = 'lower(name)' if @sort == 'name'
+        sort_sql = 'lower(description)' if @sort == 'description'
+        sort_sql = 'necessities_count' if @sort == 'usages'
+
+        sort_sql += ' asc' if @dir == 'asc'
+        sort_sql += ' desc' if @dir == 'dsc'
+
         @page = params[:page] ? (params[:page].to_i - 1) : 0
         @total = Ingredient.all.size
-        @ingredients = Ingredient.order("lower(#{@sort})").offset(@page * PAGE_SIZE).limit(PAGE_SIZE)
+        @ingredients = Ingredient.includes(:necessities).order(sort_sql).offset(@page * PAGE_SIZE).limit(PAGE_SIZE)
       }
     end    
   end
@@ -25,7 +35,7 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new(ingredient_params)
 
     if @ingredient.save
-      flash[:notice] = "Ingredient saved"
+      flash[:success] = "Ingredient saved"
       redirect_to ingredients_path
     else
       render :new
@@ -37,10 +47,10 @@ class IngredientsController < ApplicationController
   end
 
   def update
-    ingredient = Ingredient.find(params[:id])
+    @ingredient = Ingredient.find(params[:id])
 
-    if ingredient.update(ingredient_params)
-      flash[:notice] = "Ingredient updated"
+    if @ingredient.update(ingredient_params)
+      flash[:info] = "Ingredient updated"
       redirect_to ingredients_path
     else
       render :edit
@@ -48,8 +58,15 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-    ingredient = Ingredient.find(params[:id]).destroy
-    flash[:notice] = "Ingredient '#{ingredient.name}' removed"
+    ingredient = Ingredient.find(params[:id])
+
+    if ingredient.necessities.size == 0
+      ingredient.destroy
+      flash[:info] = "Ingredient '#{ingredient.name}' removed"
+    else
+      flash[:danger] = "Ingredient can't be removed while having usages"
+    end
+
     redirect_to :back
   end
 
