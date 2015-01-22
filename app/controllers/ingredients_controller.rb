@@ -22,7 +22,7 @@ class IngredientsController < ApplicationController
 
         @page = params[:page] ? (params[:page].to_i - 1) : 0
         @total = Ingredient.all.size
-        @ingredients = Ingredient.includes(:necessities).order(sort_sql).offset(@page * PAGE_SIZE).limit(PAGE_SIZE)
+        @ingredients = Ingredient.order(sort_sql).offset(@page * PAGE_SIZE).limit(PAGE_SIZE)
       }
     end    
   end

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :units, only: [:index]
+  resources :units
   resources :ingredients
 
 
