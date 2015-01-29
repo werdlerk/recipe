@@ -24,4 +24,53 @@ class UnitsController < ApplicationController
     
   end
 
+  def new
+    @unit = Unit.new
+  end
+
+  def create
+    @unit = Unit.new(unit_params)
+
+    if @unit.save
+      flash[:success] = "Unit saved"
+      redirect_to units_path
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @unit = Unit.find(params[:id])
+  end
+
+  def update
+    @unit = Unit.find(params[:id])
+
+    if @unit.update(unit_params)
+      flash[:info] = "Unit updated"
+      redirect_to units_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    unit = Unit.find(params[:id])
+
+    if unit.necessities.size == 0
+      unit.destroy
+      flash[:info] = "Unit '#{unit.name}' removed"
+    else
+      flash[:danger] = "Unit can't be removed while having usages"
+    end
+
+    redirect_to :back
+  end
+
+  private
+
+  def unit_params
+    params.require(:unit).permit(:name)
+  end
+
 end

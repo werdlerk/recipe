@@ -10,13 +10,13 @@
       </li>
     <% end %>
 
-    <% (@total / IngredientsController::PAGE_SIZE + 1).times do |i| %>
+    <% (((@total-1) / IngredientsController::PAGE_SIZE).to_i + 1).times do |i| %>
       <li <% if i == @page %>class="active"<% end %>>
         <%= link_to (i+1), allowed_params.merge(page: i+1) %>
       </li>
     <% end %>
     
-    <% if @page >= (@total / IngredientsController::PAGE_SIZE) %>
+    <% if @page >= ((@total-1) / IngredientsController::PAGE_SIZE).to_i %>
       <li class="disabled"><span aria-hidden="true">&raquo;</span></li>
     <% else %>
       <li>
