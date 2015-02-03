@@ -6,7 +6,6 @@
 
 # Ignore bundler config.
 /.bundle
-/.DS_Store
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -19,3 +18,6 @@
 # Ignore CarrierWave uploads
 /public/uploads/image
 /public/uploads/tmp
+
+# Ignore Mac OS X system files
+.DS_Store
