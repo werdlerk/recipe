@@ -18,7 +18,7 @@ class CookingRecipesController < ApplicationController
     end
 
     if @cooking_recipe.save
-      flash[:notice] = 'Recipe saved'
+      flash[:success] = 'Recipe saved'
       redirect_to cooking_recipes_path
     else
       render :new
@@ -39,7 +39,7 @@ class CookingRecipesController < ApplicationController
     end
     
     if @cooking_recipe.update(cooking_recipe_params)
-      flash[:notice] = 'Recipe updated'
+      flash[:success] = 'Recipe updated'
       redirect_to cooking_recipes_path
     else
       render :edit
@@ -53,7 +53,7 @@ class CookingRecipesController < ApplicationController
   def destroy
     @cooking_recipe = CookingRecipe.find(params[:id])
     @cooking_recipe.destroy
-    flash[:notice] = 'Recipe removed'
+    flash[:success] = 'Recipe removed'
     redirect_to cooking_recipes_path
   end
 

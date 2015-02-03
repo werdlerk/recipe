@@ -49,7 +49,10 @@ initialize = function() {
   // Autocomplete on ingredient text fields
   $("input[name$='[ingredient_name]']").autocomplete({
     source: $("input[name$='[ingredient_name]']:last").data('autocomplete-source')
-  })
+  });
+
+  // Initalize tooltips
+  $('[data-toggle="tooltip"]').tooltip();
 }
 
 $(document).ready(initialize);
