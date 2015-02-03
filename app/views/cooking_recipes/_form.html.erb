@@ -1,3 +1,5 @@
+<%= render "shared/error_messages", object: @cooking_recipe %>
+
 <%= form_for @cooking_recipe, role: 'form' do |f| %>
   <div class="row">
     <div class="col-md-8">
@@ -10,7 +12,24 @@
         <%= f.label :description %>
         <%= f.text_area :description, rows:2, class:'form-control' %>
       </div>
-      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= f.label :servings do %>
+          <%= fa_icon 'user-times' %> Servings
+        <% end %>
+        <%= f.number_field :servings, class:'form-control', min:1, max:30 %>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= f.label :duration_mins do %>
+          <%= fa_icon 'clock-o' %> Duration (minutes)
+        <% end %>
+        <%= f.number_field :duration_mins, class:'form-control', min:1 %>
+      </div>
     </div>
   </div>
 

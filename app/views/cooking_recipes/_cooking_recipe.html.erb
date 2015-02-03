@@ -12,8 +12,8 @@
               <%= cooking_recipe.description %>
               <div class="media">
                 <span class="label label-default" data-toggle="tooltip" data-placement="top" title="Created by Koen on <%= format_datetime(cooking_recipe.created_at) %><%= cooking_recipe.created_at != cooking_recipe.updated_at ? ", last update on #{format_datetime(cooking_recipe.updated_at)}" : "" %>"><%= fa_icon 'child' %> Koen</span>
-                <span class="label label-danger" data-toggle="tooltip" data-placement="top" title="Serves 4 persons"><%= fa_icon 'user-times' %> 4</span>
-                <span class="label label-primary" data-toggle="tooltip" data-placement="top" title="Takes 30 minutes to prepare"><%= fa_icon 'clock-o' %> 30 mins</span>
+                <span class="label label-danger" data-toggle="tooltip" data-placement="top" title="Serves <%= cooking_recipe.servings %> persons"><%= fa_icon 'user-times' %> <%= cooking_recipe.servings %></span>
+                <span class="label label-primary" data-toggle="tooltip" data-placement="top" title="Takes <%= cooking_recipe.duration_mins %> minutes to prepare"><%= fa_icon 'clock-o' %> <%= cooking_recipe.duration_mins %> mins</span>
                 <span class="label label-warning" data-toggle="tooltip" data-placement="top" title="Requires <%= cooking_recipe.necessities.size %> ingredients"><%= fa_icon 'dropbox' %> <%= cooking_recipe.necessities.size %></span>
                 <span class="label label-info" data-toggle="tooltip" data-placement="top" title="Requires <%= cooking_recipe.directions.size %> steps to complete"><%= fa_icon 'list-alt' %> <%= cooking_recipe.directions.size %></span>
               </div>
