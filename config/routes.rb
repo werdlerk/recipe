@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   resources :units
   resources :ingredients
 
+  resources :users, only: [:new, :create, :edit, :update, :show]
+
+  get "/register", to: "users#new"
+  # get "/login", to: "sessions#new"
+  # post "/login", to: "sessions#create"
+  # get "/logout", to: "sessions#destroy"
+  # get "/profile", to: "users#edit"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
