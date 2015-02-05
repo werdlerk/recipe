@@ -50,8 +50,6 @@
       <% end %>
 
       <% if !user_logged_in? %>
-        <%= link_to 'Register', register_path, class:'btn btn-danger btn-sm navbar-btn navbar-right' %>
-
         <%= form_tag login_path, class:'navbar-form navbar-right', role:'form' do %>
           <div class="form-group">
             <div class="input-group">
@@ -66,6 +64,8 @@
             </div>
           </div>
           <%= submit_tag 'Sign in', class:'btn btn-success btn-sm' %>
+
+          <%= link_to 'Register', register_path, class:'btn btn-danger btn-sm' %>
         <% end %>
       <% end %>
       
