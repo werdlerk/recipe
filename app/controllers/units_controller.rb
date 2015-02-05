@@ -1,4 +1,5 @@
 class UnitsController < ApplicationController
+  before_action :require_logged_in
 
   PAGE_SIZE = 10
 

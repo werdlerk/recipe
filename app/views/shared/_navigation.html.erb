@@ -22,38 +22,52 @@
           <% if menu_active?(:recipes) %><span class="sr-only">(current)</span><% end %>
         </li>
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Manage <span class="caret"></span></a>
-          
-          <ul class="dropdown-menu" role="menu">
-            <li class="<%= menu_active?(:ingredients)? 'active' : nil %>">
-              <%= link_to 'Ingredients', ingredients_path %>
-              <% if menu_active?(:ingredients) %><span class="sr-only">(current)</span><% end %>
-            </li>
-            <li class="<%= menu_active?(:units)? 'active' : nil %>">
-              <%= link_to 'Units', units_path %>
-              <% if menu_active?(:units) %><span class="sr-only">(current)</span><% end %>
-            </li>
-          </ul>
-        </li>
+        <% if user_logged_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Manage <span class="caret"></span></a>
+            
+            <ul class="dropdown-menu" role="menu">
+              <li class="<%= menu_active?(:ingredients)? 'active' : nil %>">
+                <%= link_to 'Ingredients', ingredients_path %>
+                <% if menu_active?(:ingredients) %><span class="sr-only">(current)</span><% end %>
+              </li>
+              <li class="<%= menu_active?(:units)? 'active' : nil %>">
+                <%= link_to 'Units', units_path %>
+                <% if menu_active?(:units) %><span class="sr-only">(current)</span><% end %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
-      <%= link_to 'Register', register_path, class:'btn btn-danger btn-sm navbar-btn navbar-right' %>
 
-      <form class="navbar-form navbar-right" role="form">
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-addon" id="email-field-addon">@</span>
-            <%= email_field_tag 'email', '', class:'form-control input-sm', placeholder:'Email', 'aria-describedby'=> 'email-field-addon' %>
+      <% if user_logged_in? %>
+        <%= link_to 'Logout', logout_path, class:'btn btn-success btn-sm navbar-btn navbar-right' %>
+        <p class="navbar-text navbar-right">
+          Signed in as 
+          <%= link_to current_user.name.capitalize, profile_path, class:'navbar-link' %>
+          &nbsp; &nbsp;
+        </p>
+      <% end %>
+
+      <% if !user_logged_in? %>
+        <%= link_to 'Register', register_path, class:'btn btn-danger btn-sm navbar-btn navbar-right' %>
+
+        <%= form_tag login_path, class:'navbar-form navbar-right', role:'form' do %>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="email-field-addon">@</span>
+              <%= email_field_tag 'email', '', class:'form-control input-sm', placeholder:'Email', 'aria-describedby'=> 'email-field-addon' %>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-addon glyphicon glyphicon-lock" id="password-field-addon"></span>
-            <%= password_field_tag 'password', '', class:'form-control input-sm', 'aria-describedby' => 'password-field-addon' %>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon glyphicon glyphicon-lock" id="password-field-addon"></span>
+              <%= password_field_tag 'password', '', class:'form-control input-sm', placeholder:'Password', 'aria-describedby' => 'password-field-addon' %>
+            </div>
           </div>
-        </div>
-        <button type="submit" class="btn btn-success btn-sm">Sign in</button>
-      </form>
+          <%= submit_tag 'Sign in', class:'btn btn-success btn-sm' %>
+        <% end %>
+      <% end %>
       
     </div><!--/.navbar-collapse -->
   </div>

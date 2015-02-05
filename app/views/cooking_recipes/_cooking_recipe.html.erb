@@ -11,7 +11,7 @@
               <h4 class="media-heading"><%= link_to cooking_recipe_path(cooking_recipe) do %><%= cooking_recipe.name %><% end %></h4>
               <%= cooking_recipe.description %>
               <div class="media">
-                <span class="label label-default" data-toggle="tooltip" data-placement="top" title="Created by Koen on <%= format_datetime(cooking_recipe.created_at) %><%= cooking_recipe.created_at != cooking_recipe.updated_at ? ", last update on #{format_datetime(cooking_recipe.updated_at)}" : "" %>"><%= fa_icon 'child' %> Koen</span>
+                <span class="label label-default" data-toggle="tooltip" data-placement="top" title="Created by <%= cooking_recipe.user.name.capitalize %> on <%= format_datetime(cooking_recipe.created_at) %><%= cooking_recipe.created_at != cooking_recipe.updated_at ? ", last update on #{format_datetime(cooking_recipe.updated_at)}" : "" %>"><%= fa_icon 'child' %> <%= cooking_recipe.user.name.capitalize %></span>
                 <span class="label label-danger" data-toggle="tooltip" data-placement="top" title="Serves <%= cooking_recipe.servings %> persons"><%= fa_icon 'user-times' %> <%= cooking_recipe.servings %></span>
                 <span class="label label-primary" data-toggle="tooltip" data-placement="top" title="Takes <%= cooking_recipe.duration_mins %> minutes to prepare"><%= fa_icon 'clock-o' %> <%= cooking_recipe.duration_mins %> mins</span>
                 <span class="label label-warning" data-toggle="tooltip" data-placement="top" title="Requires <%= cooking_recipe.necessities.size %> ingredients"><%= fa_icon 'dropbox' %> <%= cooking_recipe.necessities.size %></span>
@@ -19,19 +19,21 @@
               </div>
             </div>
           </div>
+        </div>
 
-        </div>
-        <div class="col-md-2">
-          <%= link_to edit_cooking_recipe_path(cooking_recipe), class:'btn btn-default btn-lg btn-block' do %>
-            <%= fa_icon 'edit' %>
-            Edit    
-          <% end %>
-        </div>
-        <div class="col-md-1">
-          <%= link_to cooking_recipe_path(cooking_recipe), method: :delete, class:'btn btn-default btn-lg', 'data-confirm' => 'Are you sure you want to remove this recipe?' do %>
-            <%= fa_icon('trash-o') %>
-          <% end %>
-        </div>
+        <% if current_user == cooking_recipe.user %>
+          <div class="col-md-2">
+            <%= link_to edit_cooking_recipe_path(cooking_recipe), class:'btn btn-default btn-lg btn-block' do %>
+              <%= fa_icon 'edit' %>
+              Edit    
+            <% end %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to cooking_recipe_path(cooking_recipe), method: :delete, class:'btn btn-default btn-lg', 'data-confirm' => 'Are you sure you want to remove this recipe?' do %>
+              <%= fa_icon('trash-o') %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>    
   </div>

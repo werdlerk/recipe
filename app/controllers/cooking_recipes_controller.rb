@@ -1,4 +1,6 @@
 class CookingRecipesController < ApplicationController
+  before_action :access_by_author, only: [:edit, :update, :destroy]
+  before_action :require_user, only: [:new] 
 
   def index
     @cooking_recipes = CookingRecipe.all
@@ -10,6 +12,7 @@ class CookingRecipesController < ApplicationController
 
   def create
     @cooking_recipe = CookingRecipe.new(cooking_recipe_params)
+    @cooking_recipe.user = current_user
 
     if params[:images] && params[:images][0].present?
       params[:images].each do |file|
@@ -72,6 +75,17 @@ class CookingRecipesController < ApplicationController
       directions_attributes: [:id, :sort_order, :description, :_destroy],
       images_attributes: [:id, :file, :_destroy]
     )
+  end
+
+  def access_by_author
+    access_denied unless user_logged_in? and CookingRecipe.find(params[:id]).user == current_user
+  end
+
+  def require_user
+    unless user_logged_in?
+      flash[:warning] = "You need to be logged in to create a new recipe. Please log in or <a href='#{ register_path }'>register</a> for an account."
+      redirect_to root_path
+    end
   end
 
 end
