@@ -18,22 +18,22 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="<%= menu_active?(:recipes)? 'active' : nil %>">
-          <%= link_to 'Recipes', cooking_recipes_path %> 
+          <%= link_to t('.recipes'), cooking_recipes_path %> 
           <% if menu_active?(:recipes) %><span class="sr-only">(current)</span><% end %>
         </li>
 
         <% if user_logged_in? %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Manage <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= t('.manage.title') %> <span class="caret"></span></a>
             
             <ul class="dropdown-menu" role="menu">
               <li class="<%= menu_active?(:ingredients)? 'active' : nil %>">
-                <%= link_to 'Ingredients', ingredients_path %>
-                <% if menu_active?(:ingredients) %><span class="sr-only">(current)</span><% end %>
+                <%= link_to t('.manage.ingredients'), ingredients_path %>
+                <% if menu_active?(:ingredients) %><span class="sr-only">(<%= t('sr-only.current') %>)</span><% end %>
               </li>
               <li class="<%= menu_active?(:units)? 'active' : nil %>">
-                <%= link_to 'Units', units_path %>
-                <% if menu_active?(:units) %><span class="sr-only">(current)</span><% end %>
+                <%= link_to t('.manage.units'), units_path %>
+                <% if menu_active?(:units) %><span class="sr-only">(<%= t('sr-only.current') %>)</span><% end %>
               </li>
             </ul>
           </li>
@@ -41,9 +41,9 @@
       </ul>
 
       <% if user_logged_in? %>
-        <%= link_to 'Logout', logout_path, class:'btn btn-success btn-sm navbar-btn navbar-right' %>
-        <p class="navbar-text navbar-right">
-          Signed in as 
+        <%= link_to t('.logout'), logout_path, class:'btn btn-success btn-sm navbar-btn pull-right' %>
+        <p class="navbar-text pull-right">
+          <%= t('.signed_in_as') %>
           <%= link_to current_user.name.capitalize, profile_path, class:'navbar-link' %>
           &nbsp; &nbsp;
         </p>
@@ -54,20 +54,21 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon" id="email-field-addon">@</span>
-              <%= email_field_tag 'email', '', class:'form-control input-sm', placeholder:'Email', 'aria-describedby'=> 'email-field-addon' %>
+              <%= email_field_tag 'email', '', class:'form-control input-sm', placeholder:t('.login.email'), 'aria-describedby'=> 'email-field-addon' %>
             </div>
           </div>
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon glyphicon glyphicon-lock" id="password-field-addon"></span>
-              <%= password_field_tag 'password', '', class:'form-control input-sm', placeholder:'Password', 'aria-describedby' => 'password-field-addon' %>
+              <%= password_field_tag 'password', '', class:'form-control input-sm', placeholder:t('.login.password'), 'aria-describedby' => 'password-field-addon' %>
             </div>
           </div>
-          <%= submit_tag 'Sign in', class:'btn btn-success btn-sm' %>
+          <%= submit_tag t('.sign_in'), class:'btn btn-success btn-sm' %>
 
-          <%= link_to 'Register', register_path, class:'btn btn-danger btn-sm' %>
+          <%= link_to t('.register'), register_path, class:'btn btn-danger btn-sm' %>
         <% end %>
       <% end %>
+
       
     </div><!--/.navbar-collapse -->
   </div>

@@ -20,4 +20,32 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  locale:
+    en: "English"
+    nl: "Dutch"
+
+  sr-only:
+    current: 'current'
+
+  shared:
+    navigation:
+      login:
+        email: 'Email'
+        password: 'Password'
+      logout: 'Logout'
+      manage:
+        title: 'Manage'
+        ingredients: 'Ingredients'
+        units: 'Units'
+      recipes: 'Recipes'
+      register: 'Register'
+      sign_in: 'Sign in'
+      signed_in_as: 'Signed in as'
+
+  cooking_recipes:
+    index:
+      title: 'Recipes'
+      actions:
+        new: 'New recipe'
+
+

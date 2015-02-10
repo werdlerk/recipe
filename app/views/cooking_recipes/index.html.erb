@@ -1,12 +1,12 @@
 <div class="row vertical-align">
   <div class="col-sm-10">
     <div class="page-header">
-      <h1>Recipes</h1>
+      <h1><%= t('.title') %></h1>
     </div>
   </div>
   <div class="col-sm-2">
     <%= link_to new_cooking_recipe_path, class:'btn btn-primary pull-right btn-lg btn-block' do %>
-      <%= fa_icon('plus') %> New recipe
+      <%= fa_icon('plus') %> <%= t('.actions.new') %>
     <% end %>
   </div>
 </div>

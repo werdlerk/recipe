@@ -15,4 +15,16 @@ module ApplicationHelper
       )
   end
 
+  def url_for_locale(locale)
+    parts = request.host.split('.')
+    parts[-1] = locale != 'en' ? locale : 'com'
+
+    url = request.protocol + parts.join('.')
+    if request.port != 80
+      url << ":#{request.port}#{request.fullpath}"
+    else
+      url << request.fullpath
+    end
+  end
+
 end
