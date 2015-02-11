@@ -1,6 +1,6 @@
 <% if object.errors.any? %>
   <div class="alert alert-warning" role="alert">
-    <strong>Your <%= object.class.name.downcase %> could not be saved due to the following errors:</strong>
+    <strong><%= t('activerecord.errors.template.body', model:object.class.model_name.human.downcase) %></strong>
     <ul>
     <% object.errors.full_messages.each do |message| %>
       <li><%= message %></li>

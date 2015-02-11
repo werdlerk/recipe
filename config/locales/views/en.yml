@@ -20,13 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  locale:
-    en: "English"
-    nl: "Dutch"
-
-  sr-only:
-    current: 'current'
-
   shared:
     navigation:
       login:
@@ -48,4 +41,11 @@ en:
       actions:
         new: 'New recipe'
 
-
+  users:
+    new:
+      title: 'Registration'
+    edit:
+      title: 'Edit profile'
+    form:
+      actions:
+        save: 'Save'

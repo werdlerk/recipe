@@ -17,7 +17,10 @@ module ApplicationHelper
 
   def url_for_locale(locale)
     parts = request.host.split('.')
-    parts[-1] = locale != 'en' ? locale : 'com'
+
+    if parts.size > 1
+      parts[-1] = locale != 'en' ? locale : 'com'
+    end
 
     url = request.protocol + parts.join('.')
     if request.port != 80

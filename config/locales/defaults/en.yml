@@ -1,0 +1,7 @@
+en:
+  locale:
+    en: "English"
+    nl: "Dutch"
+
+  sr-only:
+    current: 'current'

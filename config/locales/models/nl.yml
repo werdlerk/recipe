@@ -1,0 +1,49 @@
+nl:
+  activerecord:
+    models:
+      cooking_recipe: "Recept"
+      user: "Gebruiker"
+
+    errors:
+      full_messages:
+        format: "%{attribute}%{message}"
+      messages:
+        accepted: "moeten worden geaccepteerd"
+        blank: "moet opgegeven zijn"
+        carrierwave_processing_error: "bestand kon niet verwerkt worden"
+        carrierwave_integrity_error: "upload heeft niet een valide formaat"
+        confirmation: "komt niet met de bevestiging overeen"
+        empty: "moet opgegeven zijn"
+        equal_to: "moet gelijk zijn aan %{count}"
+        even: "moet even zijn"
+        exclusion: "is niet beschikbaar"
+        greater_than: "moet groter zijn dan %{count}"
+        greater_than_or_equal_to: "moet groter dan of gelijk zijn aan %{count}"
+        inclusion: "is niet als mogelijkheid beschikbaar"
+        invalid: "is ongeldig"
+        less_than: "moet minder zijn dan %{count}"
+        less_than_or_equal_to: "moet minder dan of gelijk zijn aan %{count}"
+        maximum_amount: "mag maximaal € %{count} zijn"
+        minimum_amount: "moet minimaal € %{count} zijn"
+        not_a_number: "is geen getal"
+        not_an_integer: "moet een geheel getal zijn"
+        odd: "moet oneven zijn"
+        record_invalid: "Validatie mislukt: %{errors}"
+        be_after: "moet liggen na %{date}"
+        be_before: "moet liggen voor %{date}"
+        in_past: "moet in het verleden liggen"
+        in_future: "moet in de toekomst liggen"
+        maximum_in_past: "mag niet meer dan %{hours} uur in het verleden liggen"
+        taken: "is al in gebruik"
+        too_long: "is te lang (maximaal %{count} tekens)"
+        too_short: "is te kort (minimaal %{count} tekens)"
+        wrong_length: "heeft onjuiste lengte (moet %{count} tekens lang zijn)"
+      template:
+        body: "De %{model} kon niet worden opgeslagen door de volgende fouten:"
+
+    attributes:
+      user:
+        name: "Naam"
+        email: "E-mail"
+        password: "Wachtwoord"
+        password_confirmation: "Wachtwoord (bevestiging)"
