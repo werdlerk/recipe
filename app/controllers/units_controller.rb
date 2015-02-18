@@ -5,7 +5,10 @@ class UnitsController < ApplicationController
 
   def index
     respond_to do |format| 
-      format.js { render json: @units.map(&:name) }
+      format.js { 
+        units = Unit.where(:locale => I18n.locale).where("name like ?", "%#{params[:term]}%").order(:name)
+        render json: units.map(&:name)
+      }
       format.html {
         @sort = params[:sort] ? params[:sort] : 'name'
         @dir = params[:dir] ? params[:dir] : 'asc'
@@ -18,8 +21,8 @@ class UnitsController < ApplicationController
         sort_sql += ' desc' if @dir == 'dsc'
 
         @page = params[:page] ? (params[:page].to_i - 1) : 0
-        @total = Unit.all.size
-        @units = Unit.order(sort_sql).offset(@page * PAGE_SIZE).limit(PAGE_SIZE)
+        @total = Unit.where(:locale => I18n.locale).size
+        @units = Unit.where(:locale => I18n.locale).order(sort_sql).offset(@page * PAGE_SIZE).limit(PAGE_SIZE)
       }
     end
     
@@ -71,7 +74,7 @@ class UnitsController < ApplicationController
   private
 
   def unit_params
-    params.require(:unit).permit(:name)
+    params.require(:unit).permit(:name, :locale)
   end
 
 end

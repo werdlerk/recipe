@@ -3,7 +3,7 @@ class CookingRecipesController < ApplicationController
   before_action :require_user, only: [:new] 
 
   def index
-    @cooking_recipes = CookingRecipe.all
+    @cooking_recipes = CookingRecipe.where(:locale => I18n.locale)
   end
 
   def new
@@ -70,7 +70,7 @@ class CookingRecipesController < ApplicationController
 
   def cooking_recipe_params
     params.require(:cooking_recipe).permit(
-      :name, :description, :servings, :duration_mins,
+      :locale, :name, :description, :servings, :duration_mins,
       necessities_attributes: [:id, :amount, :unit_name, :ingredient_name, :_destroy],
       directions_attributes: [:id, :sort_order, :description, :_destroy],
       images_attributes: [:id, :file, :file_cache, :_destroy]

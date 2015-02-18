@@ -9,7 +9,7 @@ class CookingRecipe < ActiveRecord::Base
   accepts_nested_attributes_for :directions, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  validates :name, :description, :servings, :duration_mins, presence: true
+  validates :name, :description, :servings, :duration_mins, :locale, presence: true
 
   default_scope { order('lower(name)') }
 

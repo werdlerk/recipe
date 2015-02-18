@@ -6,7 +6,7 @@ class IngredientsController < ApplicationController
   def index
     respond_to do |format|
       format.js { 
-        ingredients = Ingredient.order(:name).where("name like ?", "%#{params[:term]}%")
+        ingredients = Ingredient.where(:locale => I18n.locale).where("name like ?", "%#{params[:term]}%").order(:name)
         render json: ingredients.map(&:name)
       }
       format.html {
@@ -22,8 +22,8 @@ class IngredientsController < ApplicationController
         sort_sql += ' desc' if @dir == 'dsc'
 
         @page = params[:page] ? (params[:page].to_i - 1) : 0
-        @total = Ingredient.all.size
-        @ingredients = Ingredient.order(sort_sql).offset(@page * PAGE_SIZE).limit(PAGE_SIZE)
+        @total = Ingredient.where(:locale => I18n.locale).size
+        @ingredients = Ingredient.where(:locale => I18n.locale).order(sort_sql).offset(@page * PAGE_SIZE).limit(PAGE_SIZE)
       }
     end    
   end
@@ -74,7 +74,7 @@ class IngredientsController < ApplicationController
   private
 
   def ingredient_params
-    params.require(:ingredient).permit(:name, :description)
+    params.require(:ingredient).permit(:name, :description, :locale)
   end
 
 end

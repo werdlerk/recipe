@@ -2,7 +2,7 @@ class Ingredient < ActiveRecord::Base
   has_many :necessities
   has_many :images, as: :imageable
 
-  validates :name, presence: true
+  validates :name, :locale, presence: true
 
   before_save :name_to_downcase
 
