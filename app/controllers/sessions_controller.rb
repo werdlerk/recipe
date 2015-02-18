@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:success] = "Welcome back!"
+      flash[:success] = t('sessions.flash.welcome_back')
     else
-      flash[:danger] = "Incorrect username or password"
+      flash[:danger] = t('sessions.flash.authentication_failure')
     end
 
     if request.referrer
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:success] = "Bye bye, you've logged out!"
+    flash[:success] = t('sessions.flash.destroy')
 
     if request.referrer
       redirect_to request.referrer

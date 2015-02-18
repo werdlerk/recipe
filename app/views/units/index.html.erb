@@ -1,7 +1,7 @@
 <div class="row vertical-align">
   <div class="col-sm-12">
     <div class="page-header">
-      <h1>Units</h1>
+      <h1><%= t('.title') %></h1>
     </div>
   </div>
 </div>
@@ -11,7 +11,7 @@
     <%= render 'shared/pagination' %>
   </div>
   <div class="col-sm-2 text-center">
-    <%= link_to 'New Unit', new_unit_path, class: 'btn btn-success', style: 'margin: 20px 0px'  %>
+    <%= link_to t('.actions.new'), new_unit_path, class: 'btn btn-success', style: 'margin: 20px 0px'  %>
   </div>
 </div>
 
@@ -24,12 +24,12 @@
         <% if @sort == 'id' && @dir == 'dsc' %><span class="caret"></span><% end %>
       </th>
       <th>
-        <%= link_to 'Name', allowed_params.merge(sort:'name', dir: (@sort == 'name' && @dir == 'asc' ? 'dsc' : 'asc')) %>
+        <%= link_to t('.columns.name'), allowed_params.merge(sort:'name', dir: (@sort == 'name' && @dir == 'asc' ? 'dsc' : 'asc')) %>
         <% if @sort == 'name' && @dir == 'asc' %><span class="dropup"><span class="caret"></span></span><% end %>
         <% if @sort == 'name' && @dir == 'dsc' %><span class="caret"></span><% end %>
       </th>
       <th>
-        <%= link_to '# Usages', allowed_params.merge(sort:'usages', dir: (@sort == 'usages' && @dir == 'asc' ? 'dsc' : 'asc')) %>
+        <%= link_to t('.columns.usages'), allowed_params.merge(sort:'usages', dir: (@sort == 'usages' && @dir == 'asc' ? 'dsc' : 'asc')) %>
         <% if @sort == 'usages' && @dir == 'asc' %><span class="dropup"><span class="caret"></span></span><% end %>
         <% if @sort == 'usages' && @dir == 'dsc' %><span class="caret"></span><% end %>
       </th>
@@ -43,11 +43,11 @@
         <td><%= unit.name %></td>
         <td><%= unit.necessities.size > 0 ? unit.necessities.size : nil %></td>
         <td align="right">
-          <%= link_to 'Edit', edit_unit_path(unit), class:'btn btn-primary' %>
+          <%= link_to t('.actions.edit'), edit_unit_path(unit), class:'btn btn-primary' %>
           <% if unit.necessities.size == 0 %>
-            <%= link_to 'Delete', unit_path(unit), method: :delete, 'data-confirm' => 'Are you sure you want to delete this unit?', class:'btn btn-danger' %>
+            <%= link_to t('.actions.delete'), unit_path(unit), method: :delete, 'data-confirm' => t('.confirm.delete'), class:'btn btn-danger' %>
           <% else %>
-            <%= link_to 'Delete', '', class:'btn btn-danger disabled' %>
+            <%= link_to t('.actions.delete'), '', class:'btn btn-danger disabled' %>
           <% end %>
         </td>
       </tr>

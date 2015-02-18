@@ -36,7 +36,7 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new(ingredient_params)
 
     if @ingredient.save
-      flash[:success] = "Ingredient saved"
+      flash[:success] = t('ingredients.flash.ingredient_saved')
       redirect_to ingredients_path
     else
       render :new
@@ -51,7 +51,7 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.find(params[:id])
 
     if @ingredient.update(ingredient_params)
-      flash[:info] = "Ingredient updated"
+      flash[:info] = t('ingredients.flash.ingredient_updated')
       redirect_to ingredients_path
     else
       render :edit
@@ -63,9 +63,9 @@ class IngredientsController < ApplicationController
 
     if ingredient.necessities.size == 0
       ingredient.destroy
-      flash[:info] = "Ingredient '#{ingredient.name}' removed"
+      flash[:info] = t('ingredients.flash.ingredient_removed', name:ingredient.name)
     else
-      flash[:danger] = "Ingredient can't be removed while having usages"
+      flash[:danger] = t('ingredients.flash.unable_to_remove')
     end
 
     redirect_to :back

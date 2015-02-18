@@ -8,13 +8,13 @@
   <div class="col-md-2">
     <div class="form-group">
       <%= f.label :unit_name, class:'sr-only' %>
-      <%= f.text_field :unit_name, class:'form-control', placeholder:'Unit', data: {autocomplete_source: units_path} %>
+      <%= f.text_field :unit_name, class:'form-control', placeholder: t('.unit'), data: {autocomplete_source: units_path} %>
     </div>
   </div>
   <div class="col-md-2">
     <div class="form-group">
       <%= f.label :ingredient_name, class:'sr-only' %>
-      <%= f.text_field :ingredient_name, class:'form-control', placeholder:'Ingredient', data: {autocomplete_source: ingredients_path} %>
+      <%= f.text_field :ingredient_name, class:'form-control', placeholder: t('.ingredient'), data: {autocomplete_source: ingredients_path} %>
     </div>
   </div>
   <div class="col-md-1">

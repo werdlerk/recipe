@@ -33,7 +33,7 @@ class UnitsController < ApplicationController
     @unit = Unit.new(unit_params)
 
     if @unit.save
-      flash[:success] = "Unit saved"
+      flash[:success] = t('units.flash.unit_saved')
       redirect_to units_path
     else
       render :new
@@ -48,7 +48,7 @@ class UnitsController < ApplicationController
     @unit = Unit.find(params[:id])
 
     if @unit.update(unit_params)
-      flash[:info] = "Unit updated"
+      flash[:info] = t('units.flash.unit_updated')
       redirect_to units_path
     else
       render :edit
@@ -60,9 +60,9 @@ class UnitsController < ApplicationController
 
     if unit.necessities.size == 0
       unit.destroy
-      flash[:info] = "Unit '#{unit.name}' removed"
+      flash[:info] = t('units.flash.unit_removed', name:unit.name)
     else
-      flash[:danger] = "Unit can't be removed while having usages"
+      flash[:danger] = t('units.flash.unable_to_remove')
     end
 
     redirect_to :back

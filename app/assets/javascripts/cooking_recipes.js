@@ -30,6 +30,7 @@ initialize_sorting = function() {
   $( "#sortable-items" ).sortable({
     placeholder: "sortable-placeholder",
     handle: ".sortable-handle",
+    cursor: "grabbing",
     stop: function( event, ui ) {
       update_items_order();
     }

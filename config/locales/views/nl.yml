@@ -22,6 +22,7 @@
 nl:
   shared:
     navigation:
+      access_denied: 'Toegang verboden'
       login:
         email: 'E-mail'
         password: 'Wachtwoord'
@@ -34,17 +35,115 @@ nl:
       register: 'Registreren'
       sign_in: 'Inloggen'
       signed_in_as: 'Ingelogd als'
+      toggle_navigation: 'Toon navigatie'
 
-  cooking_recipes: 
+  cooking_recipes:
+    flash:
+      recipe_saved: 'Recept opgeslagen'
+      recipe_updated: 'Recept bijgewerkt'
+      recipe_removed: 'Recept verwijderd'
+      require_user: 'Je moet ingelogd zijn om een nieuw recept te maken. Log in of <a href="%{register_path}">maak een account aan</a>.'
+    cooking_recipe:
+      confirm_delete: 'Weet je zeker dat je dit receipt wilt verwijderen?'
+      edit: 'Bewerken'
+      tooltip:
+        author: 'Gemaakt door %{name} op %{created_at}'
+        author_with_update: 'Gemaakt door %{name} op %{created_at}, laatst bijgewerkt op %{updated_at}'
+        servings: 'Voor %{amount} personen'
+        duration: 'Kost %{amount} minuten om te maken'
+        ingredients: 'Vereist %{amount} ingrediënten'
+        directions: 'Kost %{amount} stappen om te maken'
+    edit:
+      title: 'Recept bewerken'
+    form:
+      actions:
+        add_direction: 'Instructie toevoegen'
+        add_ingredient: 'Ingrediënt toevoegen'
+        cancel: 'Annuleren'
+        save: 'Opslaan'
+      subtitle:
+        directions: 'Instructies'
+        images: 'Afbeeldingen'
+        ingredients: 'Ingrediënten'
+    image_fields:
+      remove: 'Verwijder'
     index:
       title: 'Recepten'
       actions:
         new: 'Nieuw recept'
+    necessity_fields:
+      unit: 'Maat'
+      ingredient: 'Ingrediënt'
+    new:
+      title: 'Recept toevoegen'
+
+  ingredients:
+    edit:
+      title: 'Ingrediënt bewerken'
+    flash:
+      ingredient_removed: "Ingredient '%{name}' verwijderd"
+      ingredient_saved: 'Ingredient opgeslagen'
+      ingredient_updated: 'Ingredient bijgewerkt'
+      unable_to_remove: "Ingredient kan niet verwijderd worden wanneer het nog gebruikt wordt"
+    form:
+      actions:
+        save: 'Opslaan'
+        cancel: 'Annuleren'
+    index:
+      actions:
+        new: 'Nieuw ingrediënt'
+        edit: 'Bewerken'
+        delete: 'Verwijderen'
+      columns:
+        name: 'Naam'
+        description: 'Omschrijving'
+        usages: 'Aantal keer gebruikt'
+      confirm:
+        delete: 'Weet je zeker dat je dit ingrediënt wilt verwijderen?'
+      title: 'Ingrediënten'
+    new:
+      title: 'Ingredient toevoegen'
+
+  units:
+    edit:
+      title: 'Maat bewerken'
+    flash:
+      unable_to_remove: "Maat kan niet verwijderd worden terwijl deze nog gebruikt wordt"
+      unit_removed: "Maat '%{name}' verwijderd"
+      unit_saved: 'Maat opgeslagen'
+      unit_updated: 'Maat bijgewerkt'
+    form:
+      actions:
+        save: 'Opslaan'
+        cancel: 'Annuleren'
+    index:
+      actions:
+        new: 'Nieuwe maat'
+        edit: 'Bewerken'
+        delete: 'Verwijderen'
+      columns:
+        name: 'Naam'
+        usages: 'Aantal keer gebruikt'
+      confirm:
+        delete: 'Weet je zeker dat je deze maat wilt verwijderen?'
+      title: 'Maten'
+    new:
+      title: 'Maat toevoegen'
+
   users:
     new:
       title: 'Registratie'
     edit:
       title: 'Profiel bewerken'
+    flash:
+      account_created: 'Account aangemaakt'
+      profile_updated: 'Profiel bijgewerkt'
     form:
       actions:
         save: 'Opslaan'
+
+  sessions:
+    flash:
+      authentication_failure: 'Invalide gebruikersnaam of wachtwoord'
+      destroy: "Tot ziens, je bent uitgelogd!"
+      welcome_back: 'Welkom terug!'

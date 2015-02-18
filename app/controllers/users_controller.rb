@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:success] = 'Account created.'
+      flash[:success] = t('users.flash.account_created')
       redirect_to root_path
     else
       render 'new'
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = current_user
 
     if @user.update(user_params)
-      flash[:success] = 'Profile updated.'
+      flash[:success] = t('users.flash.profile_updated')
       redirect_to root_path
     else
       render 'edit'

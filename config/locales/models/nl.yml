@@ -39,11 +39,22 @@ nl:
         too_short: "is te kort (minimaal %{count} tekens)"
         wrong_length: "heeft onjuiste lengte (moet %{count} tekens lang zijn)"
       template:
-        body: "De %{model} kon niet worden opgeslagen door de volgende fouten:"
+        body: "Het %{model} kon niet worden opgeslagen door de volgende fouten:"
 
     attributes:
+      cooking_recipe:
+        description: 'Omschrijving'
+        duration_mins: 'Bereidingstijd (mins)'
+        file: 'Toevoegen afbeeldingen'
+        name: 'Naam'
+        servings: 'Aantal porties'
+      ingredient:
+        name: 'Naam'
+        description: 'Omschrijving'
       user:
         name: "Naam"
         email: "E-mail"
         password: "Wachtwoord"
         password_confirmation: "Wachtwoord (bevestiging)"
+      unit:
+        name: 'Naam'

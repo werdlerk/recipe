@@ -18,7 +18,7 @@
     <div class="col-md-2">
       <div class="form-group">
         <%= f.label :servings do %>
-          <%= fa_icon 'user-times' %> Servings
+          <%= fa_icon 'user-times' %> <%= t('activerecord.attributes.cooking_recipe.servings') %>
         <% end %>
         <%= f.number_field :servings, class:'form-control', min:1, max:30 %>
       </div>
@@ -26,7 +26,7 @@
     <div class="col-md-2">
       <div class="form-group">
         <%= f.label :duration_mins do %>
-          <%= fa_icon 'clock-o' %> Duration (minutes)
+          <%= fa_icon 'clock-o' %> <%= t('activerecord.attributes.cooking_recipe.duration_mins') %>
         <% end %>
         <%= f.number_field :duration_mins, class:'form-control', min:1 %>
       </div>
@@ -35,7 +35,7 @@
 
   <div class="row">
     <div class="col-md-8">
-      <h3>Images</h3>
+      <h3><%= t('.subtitle.images') %></h3>
     </div>
   </div>
   
@@ -48,7 +48,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :file, 'Add image(s)' %>
+        <%= f.label :file %>
         <%= f.file_field :file, multiple:true, accept:'image/png,image/gif,image/jpg,image/jpeg', name:'images[]' %>
       </div>
     </div>
@@ -56,7 +56,7 @@
 
   <div class="row">
     <div class="col-md-8">
-      <h3>Ingredients</h3>
+      <h3><%= t('.subtitle.ingredients') %></h3>
     </div>
   </div>
 
@@ -67,14 +67,14 @@
   <div class="row">
     <div class="col-md-2">
       <%= link_to add_necessity_fields_cooking_recipes_path, remote:true, id:'add_necessity', class:'btn btn-default' do %>
-        <%= fa_icon('plus') %> Add ingredient
+        <%= fa_icon('plus') %> <%= t('.actions.add_ingredient') %>
       <% end %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-8">
-      <h3>Directions</h3>
+      <h3><%= t('.subtitle.directions') %></h3>
     </div>
   </div>
 
@@ -87,11 +87,26 @@
   <div class="row">
     <div class="col-md-2">
       <%= link_to add_direction_fields_cooking_recipes_path, remote:true, id:'add_direction', class:'btn btn-default' do %>
-        <%= fa_icon('plus') %> Add direction
+        <%= fa_icon('plus') %> <%= t('.actions.add_direction') %>
       <% end %>
     </div>
   </div>
 
-  <%= f.submit 'Save', class:'btn btn-default' %>
+  <div class="row">
+    <div class="col-md-12">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.submit t('.actions.save'), class:'btn btn-primary btn-lg btn-block' %>
+    </div>
+    <div class="col-md-2">
+      <%= link_to t('.actions.cancel'), cooking_recipes_path, class:'btn btn-default btn-lg' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">&nbsp;</div>
+  </div>
 
 <% end %>

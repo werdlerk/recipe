@@ -21,7 +21,7 @@ class CookingRecipesController < ApplicationController
     end
 
     if @cooking_recipe.save
-      flash[:success] = 'Recipe saved'
+      flash[:success] = t('cooking_recipes.flash.recipe_saved')
       redirect_to cooking_recipes_path
     else
       render :new
@@ -42,7 +42,7 @@ class CookingRecipesController < ApplicationController
     end
     
     if @cooking_recipe.update(cooking_recipe_params)
-      flash[:success] = 'Recipe updated'
+      flash[:success] = t('cooking_recipes.flash.recipe_updated')
       redirect_to cooking_recipes_path
     else
       render :edit
@@ -56,7 +56,7 @@ class CookingRecipesController < ApplicationController
   def destroy
     @cooking_recipe = CookingRecipe.find(params[:id])
     @cooking_recipe.destroy
-    flash[:success] = 'Recipe removed'
+    flash[:success] = t('cooking_recipes.flash.recipe_removed')
     redirect_to cooking_recipes_path
   end
 
@@ -73,7 +73,7 @@ class CookingRecipesController < ApplicationController
       :name, :description, :servings, :duration_mins,
       necessities_attributes: [:id, :amount, :unit_name, :ingredient_name, :_destroy],
       directions_attributes: [:id, :sort_order, :description, :_destroy],
-      images_attributes: [:id, :file, :_destroy]
+      images_attributes: [:id, :file, :file_cache, :_destroy]
     )
   end
 
@@ -83,7 +83,7 @@ class CookingRecipesController < ApplicationController
 
   def require_user
     unless user_logged_in?
-      flash[:warning] = "You need to be logged in to create a new recipe. Please log in or <a href='#{ register_path }'>register</a> for an account."
+      flash[:warning] = t('cooking_recipes.flash.require_user', register_path: register_path)
       redirect_to root_path
     end
   end

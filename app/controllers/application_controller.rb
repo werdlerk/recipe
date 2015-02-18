@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def access_denied
-    flash[:danger] = "Access forbidden"
+    flash[:danger] = t('shared.navigation.access_denied')
     redirect_to root_path
   end
 

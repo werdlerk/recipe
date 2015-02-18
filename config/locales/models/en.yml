@@ -1,15 +1,26 @@
 en:
   activerecord:
     models:
-      cooking_recipe: "Recipe"
+      cooking_recipe: 'Recipe'
 
     errors:
       template:
-        body: "The %{model} could not be saved due to the following errors:"
+        body: 'The %{model} could not be saved due to the following errors:'
 
     attributes:
+      cooking_recipe:
+        description: 'Description'
+        duration_mins: 'Duration (mins)'
+        file: 'Add image(s)'
+        name: 'Name'
+        servings: 'Amount of servings'
+      ingredient:
+        name: 'Name'
+        description: 'Description'
       user:
-        name: "Name"
-        email: "Email"
-        password: "Password"
-        password_confirmation: "Wachtwoord (bevestiging)"
+        name: 'Name'
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Wachtwoord (bevestiging)'
+      unit:
+        name: 'Name'
