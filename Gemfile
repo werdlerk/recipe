@@ -59,6 +59,9 @@ gem 'rails_stdout_logging'
 gem 'rails_serve_static_assets'
 # https://devcenter.heroku.com/articles/ruby-support#injected-plugins
 
+# Puma webserver
+# https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server
+gem 'puma'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -76,7 +79,6 @@ group :development do
 end
 
 group :production do
-  gem 'puma'
   gem 'mysql2'
 end
 
