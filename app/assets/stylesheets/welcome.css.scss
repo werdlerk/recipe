@@ -1,0 +1,79 @@
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+#welcomeCarousel.carousel {
+  height: 500px;
+  margin-bottom: 60px;
+
+  /* Declare heights because of positioning of img element */
+  .item {
+    height: 500px;
+    background-color: #000;
+  }
+
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    z-index: 10;
+
+    h1 {
+      font-size: 45px;
+    }
+    p {
+      font-size: 20px;
+    }
+    a.btn-primary {
+      background-color: #f05123;
+      border-color: #cc3333;
+    }
+  }
+
+  .carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+  }
+}
+
+
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.marketing .icon {
+  font-size: 100px;
+  width: 140px;
+  height: 140px;
+  display: inline-block;
+  color: #26ae5f;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 40px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
