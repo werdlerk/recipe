@@ -23,7 +23,7 @@
         <div class="container">
           <div class="carousel-caption">
             <h1>Your own recipes</h1>
-            <p>Do you want to submit your own recipes? Click on the button to create an account!</p>
+            <p>Do you want to submit your own recipes? Sign up for an account now!</p>
             <p><%= link_to 'Sign up now', register_path, class:'btn btn-lg btn-primary' %></p>
           </div>
         </div>
@@ -59,12 +59,12 @@
   <!-- START THE FEATURETTES -->
 
   <div class="row featurette">
-    <div class="col-md-8">
+    <div class="col-md-9">
       <h2 class="featurette-heading">No more paper or heavy books!</h2>
       <p class="lead">By storing your recipes here, you will never every have to carry all your recipes on paper anymore. No need to lift heavy cook books.</p>
       <h2><span class="text-muted">It'll blow your mind.</span></h2>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= image_tag 'welcome/book.png', class:'featurette-image img-responsive' %>
     </div>
   </div>
@@ -72,12 +72,12 @@
   <hr class="featurette-divider">
 
   <div class="row featurette">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= image_tag 'welcome/bullhorn.png', class:'featurette-image img-responsive' %>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
       <h2 class="featurette-heading">You will never forget your favorite recipes!</h2>
-      <p class="lead">Your recipes are all stored on the great big internet. You will never be able to forget them as you can easily look them up in your account!</p>
+      <p class="lead">Your recipes are all stored in the cloud. You will never be able to forget them as you can easily look them up in your account!</p>
       <h2><span class="text-muted">Just bookmark 'em.</span></h2>
     </div>
   </div>
@@ -85,12 +85,12 @@
   <hr class="featurette-divider">
 
   <div class="row featurette">
-    <div class="col-md-8">
+    <div class="col-md-9">
       <h2 class="featurette-heading">No need to use pen and paper!</h2>
       <p class="lead">Problem with your recipe? Just edit it your recipe and save it, it's updated everywhere with just a click of the mouse!</p>
       <h2><span class="text-muted">Edit your recipe as easy as 1, 2, 3.</span></h2>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= image_tag 'welcome/pen_draft.png', class:'featurette-image img-responsive' %>
     </div>
   </div>
@@ -104,19 +104,19 @@
     <div class="col-lg-4">
       <div class="icon"><span aria-hidden="true" data-icon="&#xe01d;"></span></div>
       <h2>Save loads of time</h2>
-      <p>You will save loads of time by uploading your recipes and easily look them up. Imagine what you can do with all that time that is saved from now on. Maybe finally start building that car or start a new business? Who knows, everything is possible now!</p>
+      <p>You will save loads of time by uploading your recipes and easily look them up. Imagine what you can do with all that time that is saved from now on. Maybe finally start building that car or start a new business? Who knows, everything is possible!</p>
       <p><%= link_to raw('Sign up today! &raquo;'), register_path, class:'btn btn-default' %></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4">
       <div class="icon"><span aria-hidden="true" data-icon="&#xe00d;"></span></div>
       <h2>Security is our name</h2>
-      <p>Your recipes are safe with us. We secure our infrastructure with specially trained gnomes. These <s>little</s> lethal fellows will do anything they can to make sure your recipes are only edited by you and you alone! They even make the developers life miserable by making sure that no data is leaked, sold or thrown on the street.</p>
+      <p>Your recipes are safe with us. We secure our infrastructure with specially trained gnomes. These <s>little</s> lethal fellows will do anything they can to make sure your recipes are only edited by you and you alone!</p>
       <p><%= link_to raw('Sign up today! &raquo;'), register_path, class:'btn btn-default' %></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4">
       <div class="icon"><span aria-hidden="true" data-icon="&#xe01a;"></span></div>
       <h2>It just rocks</h2>
-      <p>After using this application, you will walk around with a big smile and know from now on that life is awesome!<br/><br/> Thumbs up, I know you want to!</p>
+      <p>After using this application, you will walk around with a big smile and know that life is awesome!<br/><br/> Thumbs up, you know you want to!</p>
       <p><%= link_to raw('Login &raquo;'), login_path, class:'btn btn-default' %></p>
     </div><!-- /.col-lg-4 -->
   </div><!-- /.row -->
@@ -127,7 +127,7 @@
       <div class="icon"><span aria-hidden="true" data-icon="&#xe02f;"></span></div>
       <h2>Internationalization</h2>
       <p>This application is available in english and dutch, what ever could you want more?</p>
-      <p><%= link_to raw('Sign up today! &raquo;'), register_path, class:'btn btn-default' %></p>
+      <p><%= link_to raw('View the dutch version &raquo;'), url_for_locale('nl'), class:'btn btn-default' %></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4">
       <div class="icon"><span aria-hidden="true" data-icon="&#xe006;"></span></div>

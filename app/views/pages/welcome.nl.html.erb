@@ -1,31 +1,146 @@
 
 <% content_for :before_container do %>
-  <div class="jumbotron">
-    <div class="container">
-      <h1>Hallo, wereld!</h1>
-      <p>Dit is de nederlandse versie!</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+  <div id="welcomeCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#welcomeCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#welcomeCarousel" data-slide-to="1"></li>
+      <li data-target="#welcomeCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <%= image_tag 'welcome/1.jpg' %>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Alleen de allerbeste recepten</h1>
+            <p>De recepten die je hier vindt zijn de beste die je op het internet kan vinden. Alle recepten worden dagelijks gecontroleerd! </p>
+            <p><%= link_to 'Bekijk recepten', cooking_recipes_path, class:'btn btn-lg btn-primary', role:'button' %></p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag 'welcome/2.jpg' %>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Je eigen recepten</h1>
+            <p>Wil je je eigen recepten toevoegen? Meld je dan aan voor een account!</p>
+            <p><%= link_to 'Meld je nu aan', register_path, class:'btn btn-lg btn-primary' %></p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag 'welcome/3.jpg' %>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Waar wacht je nog op?</h1>
+            <p>Wil je een overheerlijke pizza maken of een geweldige Chili Con Carne?</p>
+            <p><%= link_to 'Bekijk de recepten', cooking_recipes_path, class:'btn btn-lg btn-primary' %></p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+    <a class="left carousel-control" href="#welcomeCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Vorige</span>
+    </a>
+    <a class="right carousel-control" href="#welcomeCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Volgende</span>
+    </a>
+  </div><!-- /.carousel -->
 <% end %>
 
-<div class="container">
-  <!-- Example row of columns -->
-  <div class="row">
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container marketing">
+
+  <!-- START THE FEATURETTES -->
+
+  <div class="row featurette">
+    <div class="col-md-9">
+      <h2 class="featurette-heading">Geen papier of zware boeken meer nodig!</h2>
+      <p class="lead">Recepten op papier zijn niet meer nodig, je hoeft alleen maar je recepten hier toe te voegen. Stel je voor, geen zware kookboeken meer nodig!</p>
+      <h2><span class="text-muted">Ongelooflijk!</span></h2>
     </div>
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-   </div>
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    <div class="col-md-3">
+      <%= image_tag 'welcome/book.png', class:'featurette-image img-responsive' %>
     </div>
   </div>
-</div> <!-- /container -->
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-3">
+      <%= image_tag 'welcome/bullhorn.png', class:'featurette-image img-responsive' %>
+    </div>
+    <div class="col-md-9">
+      <h2 class="featurette-heading">Nooit meer je recepten vergeten!</h2>
+      <p class="lead">Je recepten worden opgeslagen in de cloud. De recepten kan je opzoeken in je account en zal je nooit meer vergeten!</p>
+      <h2><span class="text-muted">Bookmark je recepten</span></h2>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-9">
+      <h2 class="featurette-heading">Geen pen en papier meer nodig!</h2>
+      <p class="lead">Foutje gemaakt in je recept? Met een paar muisklikken pas je je recept aan en wordt je wijziging overal beschikbaar!</p>
+      <h2><span class="text-muted">Wijzig je recept met een enkele muisklik.</span></h2>
+    </div>
+    <div class="col-md-3">
+      <%= image_tag 'welcome/pen_draft.png', class:'featurette-image img-responsive' %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <!-- /END THE FEATURETTES -->
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="icon"><span aria-hidden="true" data-icon="&#xe01d;"></span></div>
+      <h2>Bespaar een hoop tijd</h2>
+      <p>Je bespaart een hoop tijd door je recepten hier neer te zetten en ze later op te zoeken. Stel je eens voor wat je allemaal met die extra tijd kan doen. Misschien eindelijk beginnen met bouwen van die auto of een nieuw bedrijf beginnen? Wie weet, alles is mogelijk!</p>
+      <p><%= link_to raw('Maak nu een account! &raquo;'), register_path, class:'btn btn-default' %></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <div class="icon"><span aria-hidden="true" data-icon="&#xe00d;"></span></div>
+      <h2>Beveiliging zit in ons bloed</h2>
+      <p>Je recepten zijn veilig bij ons. We beveiligen onze infrastructuur met speciaal getrainde dwergen. Deze <s>kleine</s> dodelijke dwergen zullen er alles doen om ervoor te zorgen dat niemand anders dan jij je recepten kan bewerken!</p>
+      <p><%= link_to raw('Maak nu een account! &raquo;'), register_path, class:'btn btn-default' %></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <div class="icon"><span aria-hidden="true" data-icon="&#xe01a;"></span></div>
+      <h2>Het is gewoon geweldig</h2>
+      <p>Nadat je deze applicatie hebt gebruikt zal je rondlopen met een grote glimlach. Vanaf dat moment zal je beseffen dat het leven geweldig is!<br/><br/>Duimen omhoog, je wilt niks anders!</p>
+      <p><%= link_to raw('Inloggen &raquo;'), login_path, class:'btn btn-default' %></p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="icon"><span aria-hidden="true" data-icon="&#xe02f;"></span></div>
+      <h2>Internationalisatie</h2>
+      <p>Deze applicatie is beschikbaar in het engels en nederlands. Wat wil je nog meer?</p>
+      <p><%= link_to raw('Bekijk de engelse versie &raquo;'), url_for_locale('en'), class:'btn btn-default' %></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <div class="icon"><span aria-hidden="true" data-icon="&#xe006;"></span></div>
+      <h2>Jij hebt de macht!</h2>
+      <p>Alleen jij hebt de macht om recepten aan te maken of weg te halen! Wij hebben geen controle hierover. Het zijn jouw recepten en alleen jouw recepten.</p>
+      <p><%= link_to raw('Bekijk de recepten &raquo;'), cooking_recipes_path, class:'btn btn-default' %></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <div class="icon"><span aria-hidden="true" data-icon="&#xe026;"></span></div>
+      <h2>Wij houden van eten</h2>
+      <p>Onze liefde voor eten heeft ons geïnspireerd om deze applicatie te maken. We zijn overtuigd van ons slagen. Doe je mee?</p>
+      <p><%= link_to raw('Ja, ik doe mee! &raquo;'), register_path, class:'btn btn-default' %></p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+
+</div>
