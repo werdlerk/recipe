@@ -21,9 +21,15 @@
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
-        <% @cooking_recipe.images.each_with_index do |image, index| %>
-          <div class="item <%= index == 0 ? 'active' : '' %>">
-            <%= image_tag image.file.slider.url %>
+        <% if @cooking_recipe.images.size > 1 %>
+          <% @cooking_recipe.images.each_with_index do |image, index| %>
+            <div class="item <%= index == 0 ? 'active' : '' %>">
+              <%= image_tag image.file.slider.url %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="item active">
+            <%= image_tag 'default.png', size:'256x256' %>
           </div>
         <% end %>
       </div>
