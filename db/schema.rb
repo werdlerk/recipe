@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218210948) do
+ActiveRecord::Schema.define(version: 20150225202104) do
 
   create_table "cooking_recipes", force: :cascade do |t|
     t.string   "name",          limit: 255, null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150218210948) do
   end
 
   create_table "necessities", force: :cascade do |t|
-    t.integer  "amount"
+    t.float    "amount"
     t.integer  "unit_id"
     t.integer  "ingredient_id"
     t.integer  "cooking_recipe_id"
