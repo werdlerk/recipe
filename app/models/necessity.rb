@@ -10,7 +10,7 @@ class Necessity < ActiveRecord::Base
   end
 
   def unit_name=(name)
-    self.unit = Unit.find_or_create_by(name: name) if name.present?
+    self.unit = Unit.find_or_create_by(name: name, locale: I18n.locale.to_s) if name.present?
   end
 
   def ingredient_name
@@ -18,6 +18,6 @@ class Necessity < ActiveRecord::Base
   end
 
   def ingredient_name=(name)
-    self.ingredient = Ingredient.find_or_create_by(name: name) if name.present?
+    self.ingredient = Ingredient.find_or_create_by(name: name, locale: I18n.locale.to_s) if name.present?
   end
 end

@@ -37,7 +37,7 @@
     <ul>
       <% @cooking_recipe.necessities.each do |necessity| %>
         <li>
-          <%= necessity.amount %> <%= necessity.unit.name %> <%= necessity.ingredient.name %> 
+          <%= necessity.amount %> <%= necessity.unit.try(:name) %> <%= necessity.ingredient.try(:name) %> 
           <% if necessity.ingredient.description %>
             <span class="ingredient_description">(<%= necessity.ingredient.description %>)</span>
           <% end %>
